@@ -62,10 +62,29 @@ public class Consultas extends JFrame {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+
+        try {
+            FileInputStream leer =
+                    new FileInputStream("C:\\temp\\ListaDoctor.txt");
+            ObjectInputStream miStream2 = new ObjectInputStream(leer);
+            Object o = miStream2.readObject();
+            otraListaDoctores = (ArrayList<Doctor>) o;
+            for(Doctor d: otraListaDoctores){
+                cmbDoctor.addItem(d.getIDDoctor());
+            }
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
         cmbPaciente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //JOptionPane.showMessageDialog(miPanel,cmbAlumno.getSelectedItem());
+                //JOptionPane.showMessageDialog(miPanel,cmbPaciente.getSelectedItem());
                 String nombreCompleto="";
                 String mat = cmbPaciente.getSelectedItem().toString();
                 for(Paciente a: otraLista){

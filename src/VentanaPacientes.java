@@ -89,7 +89,9 @@ public class VentanaPacientes extends JFrame {
     }
 
     public boolean validarCamposPaciente() {
-        if (txtIDPaciente.getText().isEmpty() || txtNombre.getText().isEmpty()|| txtApPaterno.getText().isEmpty() || txtApMaterno.getText().isEmpty() ||txtFechaNac.getText().isEmpty()) {
+        if (txtIDPaciente.getText().isEmpty() || txtNombre.getText().isEmpty()
+                || txtApPaterno.getText().isEmpty() || txtApMaterno.getText().isEmpty()
+                ||txtFechaNac.getText().isEmpty()) {
             JOptionPane.showMessageDialog(miPanel, "Hay una casilla vacia o con un valor invalido, cheque de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
